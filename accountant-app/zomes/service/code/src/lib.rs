@@ -15,6 +15,9 @@ pub struct ServiceCycle {
     pub signature: Option<String>,
 }
 
+fn handle_log(log: ServiceCycle) -> serde_json::Value {
+	match hdk::commit_entry("log", json!(ServiceCycle)) {}
+}
 define_zome! {
     entries: [
         entry!(
@@ -26,7 +29,7 @@ define_zome! {
             validation: |service_cycle: ServiceCycle, _ctx: hdk::ValidationData| {
                 Ok(())
             }
-        ),
+        )
     ]
 
     genesis: || {
