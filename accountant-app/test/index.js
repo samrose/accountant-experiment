@@ -16,11 +16,12 @@ test('description of example test', (t) => {
   // Make a call to a Zome function
   // indicating the group and function, and passing it an input
   // const result = app.call("zome-name", "capability-name", "function-name", {})
-  const result = app.call("service", "", "logger", {})
+  const result = app.call("service", "main", "logger", {})
 
   // check for equality of the actual and expected results
   // t.equal(result, "expected result!")
-  t.equal(result, "Error calling zome function: InternalFailure(Dna(ZomeNotFound(\"Zome \\\'zome-name\\\' not found\")))")
+//  t.equal(result, "blah", "Error calling zome function: InternalFailure(Dna(ZomeNotFound(\"Zome \\\'zome-name\\\' not found\")))")
+  t.equal(result.rawResult, 'blah' )
 
   // ends this test
   t.end()
