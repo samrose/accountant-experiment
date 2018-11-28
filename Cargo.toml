@@ -1,0 +1,7 @@
+[package]
+name = "accountant-app"
+version = "0.1.0"
+authors = ["vagrant"]
+edition = "2018"
+
+[dependencies]
