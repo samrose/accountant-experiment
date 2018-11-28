@@ -10,12 +10,17 @@ const app = Container.loadAndInstantiate("dist/bundle.json")
 app.start()
 
 test('description of example test', (t) => {
+  // indicates the number of assertions that follow
+  // t.plan(1)
+
   // Make a call to a Zome function
-  // indicating the capability and function, and passing it an input
+  // indicating the group and function, and passing it an input
   // const result = app.call("zome-name", "capability-name", "function-name", {})
+  const result = app.call("service", "", "logger", {})
 
   // check for equality of the actual and expected results
   // t.equal(result, "expected result!")
+  t.equal(result, "Error calling zome function: InternalFailure(Dna(ZomeNotFound(\"Zome \\\'zome-name\\\' not found\")))")
 
   // ends this test
   t.end()
