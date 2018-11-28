@@ -61,7 +61,7 @@ define_zome! {
 
     functions: {
         main (Public) {
-            log: {
+            logger: {
                 inputs: | |,
                 outputs: |result: ()|,
                 handler: handle_log
