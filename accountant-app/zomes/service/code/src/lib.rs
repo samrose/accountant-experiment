@@ -44,7 +44,7 @@ define_zome! {
                     agent_key: String,
                     request: Value,
                     response: Value,
-                    metrics: service_cycle::ServiceMetrics
+                    metrics: "none"
                 |,
                 outputs: |result: serde_json::Value|
                 handler: handle_log
