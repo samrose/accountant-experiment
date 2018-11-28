@@ -38,5 +38,17 @@ define_zome! {
     }
 
     functions: {
+        main (Public) {
+            handle_log: {
+                inputs: |
+                    agent_key: String,
+                    request: Value,
+                    response: Value,
+                    metrics: service_cycle::ServiceMetrics
+                |,
+                outputs: |result: serde_json::Value|
+                handler: handle_log
+            }
+        }
     }
 }
