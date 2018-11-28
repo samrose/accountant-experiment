@@ -19,6 +19,7 @@ use hdk::{
         hash::HashString,
         json::{DefaultJson, JsonString},
         validation::EntryAction,
+        dna::zome::entry_types::Sharing,
     }
 };
 use serde::Serialize;
@@ -36,10 +37,8 @@ pub struct ServiceCycle {
     pub signature: Option<String>,
 }
 
-fn handle_log(log: ServiceCycle) -> serde_json::Value {
-	match hdk::commit_entry("log", json!(ServiceCycle)) {
-
-    }
+fn handle_log() -> JsonString {
+    "blah".into()
 }
 
 define_zome! {
@@ -63,13 +62,8 @@ define_zome! {
     functions: {
         main (Public) {
             log: {
-                inputs: |
-                    agent_key: String,
-                    request: Value,
-                    response: Value,
-                    metrics: String
-                |,
-                outputs: |result: serde_json::Value|,
+                inputs: | |,
+                outputs: |result: ()|,
                 handler: handle_log
             }
         }
