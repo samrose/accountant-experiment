@@ -5,25 +5,30 @@ extern crate hdk;
 pub extern crate serde;
 #[macro_use]
 extern crate serde_derive;
-#[macro_use]
 extern crate serde_json;
 #[macro_use]
 extern crate holochain_core_types_derive;
 
 use hdk::{
-    entry_definition::ValidatingEntryType,
-    error::{ZomeApiError, ZomeApiResult},
+    //entry_definition::ValidatingEntryType,
+    //error::{
+        //ZomeApiError,
+        //ZomeApiResult
+    //},
     holochain_core_types::{
-        entry::Entry,
+        //entry::Entry,
         error::HolochainError,
         hash::HashString,
-        json::{DefaultJson, JsonString},
-        validation::EntryAction,
+        json::{
+            //DefaultJson,
+            JsonString
+        },
+        //validation::EntryAction,
         dna::zome::entry_types::Sharing,
     }
 };
-use serde::Serialize;
-use serde_json::{Value};
+//use serde::Serialize;
+//use serde_json::{Value};
 
 // see https://holochain.github.io/rust-api/0.0.1/hdk/ for info on using the hdk library
 
@@ -37,8 +42,8 @@ pub struct ServiceCycle {
     pub signature: Option<String>,
 }
 
-fn handle_log() -> JsonString {
-    "blah".into()
+fn handle_log(stuff:String) -> JsonString {
+    stuff.into()
 }
 
 define_zome! {
@@ -62,8 +67,8 @@ define_zome! {
     functions: {
         main (Public) {
             logger: {
-                inputs: | |,
-                outputs: |result: ()|,
+                inputs: |stuff: String|,
+                outputs: |result: JsonString|,
                 handler: handle_log
             }
         }
