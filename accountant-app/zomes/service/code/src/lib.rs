@@ -18,6 +18,7 @@ pub struct ServiceCycle {
 fn handle_log(log: ServiceCycle) -> serde_json::Value {
 	match hdk::commit_entry("log", json!(ServiceCycle)) {}
 }
+
 define_zome! {
     entries: [
         entry!(
