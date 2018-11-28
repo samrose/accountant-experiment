@@ -20,7 +20,7 @@ test('test handle_log', (t) => {
 
   // check for equality of the actual and expected results
   // t.equal(result, "expected result!")
-  //  t.equal(result, "blah", "Error calling zome function: InternalFailure(Dna(ZomeNotFound(\"Zome \\\'zome-name\\\' not found\")))")
+  // t.equal(result, "blah", "Error calling zome function: InternalFailure(Dna(ZomeNotFound(\"Zome \\\'zome-name\\\' not found\")))")
   t.deepEqual(result.rawResult, 'test' )
 
   // ends this test
